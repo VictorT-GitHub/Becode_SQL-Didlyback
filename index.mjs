@@ -1,5 +1,6 @@
 import SQLite from "sqlite-async";
 
+// GET ALL EVENTS AND DATES AND ATTENDEES
 async function getEvents() {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all(
@@ -12,6 +13,7 @@ async function getEvents() {
   return allEvents;
 }
 
+// GET ONE EVENT
 async function getEvent(id) {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all("SELECT * FROM events WHERE id=?", [id]);
