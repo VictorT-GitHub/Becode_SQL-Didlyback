@@ -17,7 +17,7 @@ CREATE TABLE dates(
 );
 
 CREATE TABLE attendees(
-    at_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    attend_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 
     attend_name VARCHAR(255) NOT NULL,
     available TINYINT(1) NOT NULL,
@@ -27,7 +27,8 @@ CREATE TABLE attendees(
 ); 
 
 INSERT INTO events (ev_name, author, description)
-VALUES('Team Building Hoppers', 'Axel', 'group projects and fun');
+VALUES
+('Team Building Hoppers', 'Axel', 'group projects and fun');
 
 INSERT INTO dates (event_id, date)
 VALUES
@@ -36,4 +37,6 @@ VALUES
 (1, '03-12-2021');
 
 INSERT INTO attendees (date_id, attend_name, available)
-VALUES(1, 'Victor', 1), (1, 'Axel', 0);
+VALUES
+(1, 'Victor', 1),
+(1, 'Axel', 0);
