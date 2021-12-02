@@ -48,7 +48,7 @@ export async function getAllEvents() {
 // getAllEvents();
 
 // ------------ GET ONE EVENT (SELECTED BY EV_ID) ------------
-async function getEvent(ev_id) {
+export async function getEvent(ev_id) {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all("SELECT * FROM events WHERE ev_id=?", [ev_id]);
   console.log(allEvents);
@@ -60,7 +60,7 @@ async function getEvent(ev_id) {
 // getEvent(1);
 
 // ------------ DELETE ONE EVENT (SELECTED BY EV_ID) ------------
-async function deleteEvent(ev_id) {
+export async function deleteEvent(ev_id) {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all("DELETE FROM events WHERE ev_id=?", [ev_id]);
   console.log(allEvents);
@@ -72,7 +72,7 @@ async function deleteEvent(ev_id) {
 // deleteEvent(1);
 
 // ------------ EDIT EVENT NAME & AUTHOR & DESCRIPTION (SELECTED BY EV_ID) ------------
-async function editEvent(ev_id, ev_name, author, descri) {
+export async function editEvent(ev_id, ev_name, author, descri) {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all(
     `UPDATE events SET ev_name = '${ev_name}', author = '${author}', description = '${descri}'  WHERE ev_id=?`,
@@ -87,7 +87,7 @@ async function editEvent(ev_id, ev_name, author, descri) {
 // editEvent(1, "new event name", "viviLaMachine", "new description so cool");
 
 // ------------ CREATE NEW EVENT (NAME & AUTHOR & DESCRIPTION) ------------
-async function createEvent(ev_name, author, descri) {
+export async function createEvent(ev_name, author, descri) {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all(
     `INSERT INTO events (ev_name, author, description)
@@ -102,7 +102,7 @@ async function createEvent(ev_name, author, descri) {
 // createEvent("victor testing", "vivivi", "pic nic dans la forêt");
 
 // ------------ ADD DATE(S) TO EVENT (DATE) (SELECTED BY EVENT_ID) ------------
-async function addDateToEvent(event_id, date) {
+export async function addDateToEvent(event_id, date) {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all(
     `INSERT INTO dates (event_id, date)
@@ -121,7 +121,7 @@ async function addDateToEvent(event_id, date) {
 // });
 
 // ------------ ADD ATTEND TO DATE(S) (ATTEND_NAME, AVAILABILITY) (SELECTED BY DATE_ID) ------------
-async function addAttendToDate(date_id, attend_name, available) {
+export async function addAttendToDate(date_id, attend_name, available) {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all(
     `INSERT INTO attendees (date_id, attend_name, available)
