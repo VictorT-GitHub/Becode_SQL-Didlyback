@@ -7,8 +7,12 @@
     "express": "^4.17.1",
     "sqlite-async": "^1.1.2"
   },
-  "devDependencies": {},
-  "scripts": {},
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "devStart": "nodemon serveur.mjs"
+  },
   "author": "",
   "license": "ISC"
 }

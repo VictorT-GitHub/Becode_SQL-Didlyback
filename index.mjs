@@ -1,7 +1,7 @@
 import SQLite from "sqlite-async";
 
 // ------------ GET ALL EVENTS (& DATES & ATTENDEES) ------------
-async function getAllEvents() {
+export async function getAllEvents() {
   const db = await SQLite.open("./db/database");
   const allEvents = await db.all(
     "SELECT * FROM events LEFT JOIN dates ON event_id = events.ev_id LEFT JOIN attendees ON date_id = dates.da_id"
@@ -43,7 +43,7 @@ async function getAllEvents() {
 
   db.close();
 
-  return allEvents;
+  return ret;
 }
 // getAllEvents();
 
